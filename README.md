@@ -17,12 +17,28 @@ grunt
 The project should run a couple of Jasmine unit specs against myModule.js, and then run JS Hint successfully.
 
 ```sh
-Running "jasmine_node:all" (jasmine_node) task
-Running /Users/beechj01/workspace/talon-tester/spec/myModuleSpec.js
-..
+Running "jasmine_nodejs:project" (jasmine_nodejs) task
+Running /Users/beechj01/workspace/grunt-jasmine-node-example/spec/myModuleSpec.js
 
-Finished in 0.003 seconds
-2 tests, 2 assertions, 0 failures, 0 skipped
+>> Executing 2 defined specs...
+
+Test Suites & Specs:
+
+1) Talon Testers
+   ✔ should find and md5 my surname
+   ✔ should return unknown name
+
+>> Done!
+
+
+Summary:
+
+Suites:  1 of 1
+Specs:   2 of 2
+Expects: 2 (0 failures)
+Finished in 0.005 seconds
+
+>> Successful!
 
 Running "jshint:gruntfile" (jshint) task
 >> 1 file lint free.
