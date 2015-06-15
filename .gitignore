@@ -1,3 +1,4 @@
 node_modules
 lib/api/statusCode.js
 spec/api/statusCodeSpec.js
+jasmine-test-results.json

@@ -1,6 +1,15 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
+
+  // npm install jasmine-json-test-reporter@1.0.0-beta --save-dev
+  var JasmineJsonTestReporter = require('jasmine-json-test-reporter');
+  var customJasmineReporter = new JasmineJsonTestReporter({
+    file: 'jasmine-test-results.json',
+    beautify: true,
+    indentationLevel: 2
+  });
+
   // Project configuration.
   grunt.initConfig({
     // Task configuration.
@@ -17,10 +26,9 @@ module.exports = function(grunt) {
         unused: true,
         boss: true,
         eqnull: true,
+        node: true,
         globals: {
-          jQuery: true,
-          require: true,
-          module: true
+          jQuery: true
         }
       },
       gruntfile: {
@@ -48,7 +56,7 @@ module.exports = function(grunt) {
           }
         },
         // add custom Jasmine reporter(s)
-        customReporters: []
+        customReporters: [customJasmineReporter]
       },
       project: {
         // target specific options
