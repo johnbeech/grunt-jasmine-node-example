@@ -31,40 +31,40 @@ module.exports = function(grunt) {
       }
     },
     jasmine_nodejs: {
-            // task specific (default) options
-            options: {
-                specNameSuffix: "Spec.js", // also accepts an array
-                helperNameSuffix: "helper.js",
-                useHelpers: false,
-                stopOnFailure: false,
-                // configure one or more built-in reporters
-                reporters: {
-                    console: {
-                        colors: true,
-                        cleanStack: 1,       // (0|false)|(1|true)|2|3
-                        verbosity: 3,        // (0|false)|1|2|(3|true)
-                        listStyle: "indent", // "flat"|"indent"
-                        activity: false
-                    }
-                },
-                // add custom Jasmine reporter(s)
-                customReporters: []
-            },
-            your_target: {
-                // target specific options
-                options: {
-                    useHelpers: true
-                },
-                // spec files
-                specs: [
-                    "spec/**",
-                    "test/core/**"
-                ],
-                helpers: [
-                    "test/helpers/**"
-                ]
-            }
+      // task specific (default) options
+      options: {
+        specNameSuffix: "Spec.js", // also accepts an array
+        helperNameSuffix: "helper.js",
+        useHelpers: false,
+        stopOnFailure: false,
+        // configure one or more built-in reporters
+        reporters: {
+          console: {
+            colors: true,
+            cleanStack: 1, // (0|false)|(1|true)|2|3
+            verbosity: 3, // (0|false)|1|2|(3|true)
+            listStyle: "indent", // "flat"|"indent"
+            activity: false
+          }
         },
+        // add custom Jasmine reporter(s)
+        customReporters: []
+      },
+      project: {
+        // target specific options
+        options: {
+          useHelpers: true
+        },
+        // spec files
+        specs: [
+          "spec/**",
+          "test/core/**"
+        ],
+        helpers: [
+          "test/helpers/**"
+        ]
+      }
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -78,11 +78,11 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-jasmine-node');
+  grunt.loadNpmTasks('grunt-jasmine-nodejs');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['jasmine_node', 'jshint']);
+  grunt.registerTask('default', ['jasmine_nodejs:project', 'jshint']);
 
 };
